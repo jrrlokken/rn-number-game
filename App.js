@@ -12,6 +12,9 @@ const fetchFonts = () => {
   return Font.loadAsync({
     'open-sans': require('./assets/fonts/OpenSans-Regular.ttf'),
     'open-sans-bold': require('./assets/fonts/OpenSans-Bold.ttf'),
+    'roboto-regular': require('./assets/fonts/Roboto-Regular.ttf'),
+    'roboto-thin': require('./assets/fonts/Roboto-Thin.ttf'),
+    'roboto-black': require('./assets/fonts/Roboto-Black.ttf'),
   });
 };
 

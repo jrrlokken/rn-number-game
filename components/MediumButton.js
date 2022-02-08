@@ -20,7 +20,7 @@ const styles = StyleSheet.create({
   },
   buttonText: {
     color: 'white',
-    fontFamily: 'open-sans',
+    fontFamily: 'roboto-regular',
     fontSize: 14,
     textAlign: 'center',
   },

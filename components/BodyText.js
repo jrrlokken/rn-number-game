@@ -8,7 +8,7 @@ const BodyText = (props) => {
 
 const styles = StyleSheet.create({
   body: {
-    fontFamily: 'open-sans',
+    fontFamily: 'roboto-regular',
   },
 });
 

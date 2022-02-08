@@ -2,10 +2,10 @@ import { StyleSheet } from 'react-native';
 
 export default StyleSheet.create({
   bodyText: {
-    fontFamily: 'open-sans',
+    fontFamily: 'roboto-regular',
   },
   title: {
-    fontFamily: 'open-sans-bold',
+    fontFamily: 'roboto-black',
     fontSize: 18,
   },
 });
