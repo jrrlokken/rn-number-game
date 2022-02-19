@@ -1,4 +1,5 @@
 import { Text, StyleSheet } from 'react-native';
+import Colors from '../constants/colors';
 
 const BodyText = (props) => {
   return (
@@ -9,6 +10,7 @@ const BodyText = (props) => {
 const styles = StyleSheet.create({
   body: {
     fontFamily: 'roboto-regular',
+    color: Colors.text,
   },
 });
 

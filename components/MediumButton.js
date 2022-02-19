@@ -1,4 +1,10 @@
-import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
+import {
+  View,
+  Text,
+  TouchableOpacity,
+  StyleSheet,
+  Dimensions,
+} from 'react-native';
 
 import Colors from '../constants/colors';
 
@@ -17,7 +23,7 @@ const styles = StyleSheet.create({
     backgroundColor: Colors.primary,
     paddingVertical: 10,
     borderRadius: 25,
-    width: 100,
+    // width: Dimensions.get('window').width / 4,
   },
   buttonText: {
     color: 'white',

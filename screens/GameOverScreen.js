@@ -1,4 +1,11 @@
-import { View, StyleSheet, Text, Button, Image } from 'react-native';
+import {
+  View,
+  StyleSheet,
+  Text,
+  Dimensions,
+  Image,
+  ScrollView,
+} from 'react-native';
 
 import BodyText from '../components/BodyText';
 import TitleText from '../components/TitleText';
@@ -8,28 +15,27 @@ import Colors from '../constants/colors';
 
 const GameOverScreen = (props) => {
   return (
-    <View style={styles.container}>
-      <TitleText style={styles.gameOver}>GAME OVER!</TitleText>
-      <View style={styles.imageContainer}>
-        <Image
-          style={styles.image}
-          resizeMode="cover"
-          // source={{
-          //   uri: 'https://s3.amazonaws.com/www.explorersweb.com/wp-content/uploads/2021/05/23233000/Summit-Everest-MingmaG.jpg',
-          // }}
-          source={require('../assets/success.png')}
-        />
+    <ScrollView>
+      <View style={styles.container}>
+        <TitleText style={styles.gameOver}>GAME OVER!</TitleText>
+        <View style={styles.imageContainer}>
+          <Image
+            style={styles.image}
+            resizeMode="cover"
+            source={require('../assets/success.png')}
+          />
+        </View>
+        <View style={styles.resultsContainer}>
+          <BodyText style={styles.resultText}>
+            Your phone needed{' '}
+            <Text style={styles.highlight}>{props.numRounds}</Text> rounds to
+            guess the number{' '}
+            <Text style={styles.highlight}>{props.userNumber}</Text>
+          </BodyText>
+        </View>
+        <LargeButton onPress={props.onNewGame}>NEW GAME</LargeButton>
       </View>
-      <View style={styles.resultsContainer}>
-        <BodyText style={styles.resultText}>
-          Your phone needed{' '}
-          <Text style={styles.highlight}>{props.numRounds}</Text> rounds to
-          guess the number{' '}
-          <Text style={styles.highlight}>{props.userNumber}</Text>
-        </BodyText>
-      </View>
-      <LargeButton onPress={props.onNewGame}>NEW GAME</LargeButton>
-    </View>
+    </ScrollView>
   );
 };
 
@@ -38,30 +44,32 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
+    paddingVertical: Dimensions.get('window').height < 600 ? 10 : 20,
   },
   imageContainer: {
-    width: 250,
-    height: 250,
-    borderRadius: 150,
+    width: Dimensions.get('window').width * 0.7,
+    height: Dimensions.get('window').width * 0.7,
+    borderRadius: (Dimensions.get('window').width * 0.7) / 2,
     borderColor: 'black',
     borderWidth: 3,
     overflow: 'hidden',
-    marginVertical: 30,
+    marginVertical: Dimensions.get('window').height / 30,
   },
   resultsContainer: {
     marginHorizontal: 30,
-    marginVertical: 15,
+    marginVertical: Dimensions.get('window').height / 60,
   },
   image: {
     width: '100%',
     height: '100%',
   },
   gameOver: {
-    fontSize: 30,
+    fontSize: Dimensions.get('window').height < 600 ? 20 : 30,
+    marginTop: Dimensions.get('window').height < 600 ? 5 : 30,
   },
   resultText: {
     textAlign: 'center',
-    fontSize: 20,
+    fontSize: Dimensions.get('window').height < 600 ? 16 : 20,
   },
   highlight: {
     color: Colors.primary,

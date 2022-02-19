@@ -1,14 +1,27 @@
-import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
+import {
+  View,
+  Text,
+  TouchableOpacity,
+  StyleSheet,
+  TouchableNativeFeedback,
+  Platform,
+} from 'react-native';
 
 import Colors from '../constants/colors';
 
 const LargeButton = (props) => {
+  let ButtonComponent = TouchableOpacity;
+
+  if (Platform.OS === 'android' && Platform.version >= 21) {
+    ButtonComponent = TouchableNativeFeedback;
+  }
+
   return (
-    <TouchableOpacity onPress={props.onPress}>
+    <ButtonComponent onPress={props.onPress}>
       <View style={styles.button}>
         <Text style={styles.buttonText}>{props.children}</Text>
       </View>
-    </TouchableOpacity>
+    </ButtonComponent>
   );
 };
 
